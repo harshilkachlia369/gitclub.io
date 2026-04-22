@@ -1470,4 +1470,13 @@ code { font-family: var(--font-mono); }
   .lb-header, .lb-row { grid-template-columns: 40px 1fr 70px; }
   .lb-header span:nth-child(4), .lb-header span:nth-child(5),
   .lb-level, .lb-modules { display: none; }
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  background: linear-gradient(to right, #00ffcc, #0077ff);
+  z-index: 9999;
 }
+
