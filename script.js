@@ -20,6 +20,13 @@ let state = loadState() || {
   currentUser: null
 };
 
+  window.onscroll = function () {
+    let scrollTop = document.documentElement.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollPercent = (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress-bar").style.width = scrollPercent + "%";
+  };
 const LEVELS = [
   { name: 'Newbie',       min: 0   },
   { name: 'Git Starter',  min: 100 },
