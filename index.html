@@ -9,17 +9,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-<nav>
-  <a href="#home" onclick="showPage('home')">Home</a>
-  <a href="#roadmap" onclick="showPage('roadmap')">Roadmap</a>
-  <a href="#projects" onclick="showPage('projects')">Projects</a>
-  <a href="#join" onclick="showPage('join')">Join</a>
-</nav>
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="openTab('home')">Home</button>
+  <button class="tab-btn" onclick="openTab('roadmap')">Roadmap</button>
+  <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+  <button class="tab-btn" onclick="openTab('join')">Join</button>
+</div>
 
-<section id="home" class="page">HOME CONTENT</section>
-<section id="roadmap" class="page">ROADMAP CONTENT</section>
-<section id="projects" class="page">PROJECTS CONTENT</section>
-<section id="join" class="page">JOIN CONTENT</section>
+<!-- Content -->
+<div id="home" class="tab-content active">
+  <h1>Welcome to GitClub 🚀</h1>
+</div>
+
+<div id="roadmap" class="tab-content">
+  <h1>Roadmap</h1>
+</div>
+
+<div id="projects" class="tab-content">
+  <h1>Projects</h1>
+</div>
+
+<div id="join" class="tab-content">
+  <h1>Join GitClub</h1>
+</div>
   <div id="progress-bar"></div>
 <!-- ══════════════════════════════════════════════
      MASCOT GUIDE — GITTO
