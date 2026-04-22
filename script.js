@@ -25,6 +25,43 @@ function openTab(tabId) {
     tab.classList.remove("active");
   });
 
+const dot = document.querySelector(".cursor-dot");
+const ring = document.querySelector(".cursor-ring");
+
+document.addEventListener("mousemove", (e) => {
+  dot.style.left = e.clientX + "px";
+  dot.style.top = e.clientY + "px";
+
+  ring.style.left = (e.clientX - 11) + "px";
+  ring.style.top = (e.clientY - 11) + "px";
+});
+
+   <script>
+document.addEventListener("click", () => {
+  ring.style.transform = "scale(2)";
+  ring.style.opacity = "0";
+
+  setTimeout(() => {
+    ring.style.transform = "scale(1)";
+    ring.style.opacity = "1";
+  }, 200);
+});
+</script>
+
+   <script>
+document.querySelectorAll("a, button").forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    ring.style.borderColor = "#0077ff";
+    ring.style.transform = "scale(1.5)";
+  });
+
+  el.addEventListener("mouseleave", () => {
+    ring.style.borderColor = "rgba(0,255,204,0.4)";
+    ring.style.transform = "scale(1)";
+  });
+});
+</script>
+   
   // Remove active from buttons
   document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.classList.remove("active");
