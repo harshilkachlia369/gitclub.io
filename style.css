@@ -1476,7 +1476,7 @@ code { font-family: var(--font-mono); }
   left: 0;
   width: 0%;
   height: 7px;
-  background: linear-gradient(to right, #00ffcc, #0077ff);
+  background: linear-gradient(to right,#39FF14);
   z-index: 9999;
 box-shadow: 0 0 10px #00ffcc;
 }
