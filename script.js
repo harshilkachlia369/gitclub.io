@@ -19,26 +19,23 @@ let state = loadState() || {
   leaderboard: [],
   currentUser: null
 };
-
-function showPage(pageId) {
-  // Hide all pages
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.remove("active");
+function openTab(tabId) {
+  // Hide all content
+  document.querySelectorAll(".tab-content").forEach(tab => {
+    tab.classList.remove("active");
   });
 
-  // Show selected page
-  document.getElementById(pageId).classList.add("active");
+  // Remove active from buttons
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  // Show selected tab
+  document.getElementById(tabId).classList.add("active");
+
+  // Highlight clicked button
+  event.target.classList.add("active");
 }
-
-// Default page
-showPage("home");
-  window.onscroll = function () {
-    let scrollTop = document.documentElement.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrollPercent = (scrollTop / scrollHeight) * 100;
-
-    document.getElementById("progress-bar").style.width = scrollPercent + "%";
-  };
 const LEVELS = [
   { name: 'Newbie',       min: 0   },
   { name: 'Git Starter',  min: 100 },
