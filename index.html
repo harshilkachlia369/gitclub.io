@@ -1,132 +1,879 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Club 🚀 - Master GitHub Like a Pro!</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitClub — Learn GitHub the Fun Way</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fab fa-github"></i>
-                <span>Git Club</span>
-            </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#learn" class="nav-link">Learn</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#quiz" class="nav-link">Quiz</a>
-                <a href="#team" class="nav-link">Team</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>🚀 Welcome to Git Club!</h1>
-            <p>Learn GitHub like a <span class="highlight">coding superhero</span>!</p>
-            <div class="hero-buttons">
-                <button class="btn-primary" onclick="scrollToSection('learn')">
-                    Start Learning <i class="fas fa-rocket"></i>
-                </button>
-                <button class="btn-secondary" onclick="scrollToSection('quiz')">
-                    Take Quiz <i class="fas fa-trophy"></i>
-                </button>
-            </div>
-            <div class="progress-bar">
-                <div class="progress" id="globalProgress">0%</div>
-            </div>
-        </div>
-        <div class="hero-animation">
-            <div class="code-wave"></div>
-        </div>
-    </section>
+<!-- ══════════════════════════════════════════════
+     MASCOT GUIDE — GITTO
+══════════════════════════════════════════════ -->
+<div id="mascot-wrapper">
+  <div id="mascot">
+    <div class="mascot-face">
+      <div class="mascot-eye left"></div>
+      <div class="mascot-eye right"></div>
+      <div class="mascot-blush left"></div>
+      <div class="mascot-blush right"></div>
+      <div class="mascot-mouth"></div>
+    </div>
+    <div class="mascot-ears">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+    </div>
+    <div class="mascot-tail"></div>
+  </div>
+  <div id="mascot-bubble">
+    <span id="mascot-text">Hey! I'm <b>Gitto</b> 🐱 Your GitHub guide! Let's start your journey!</span>
+    <button id="mascot-next-btn">Let's Go! →</button>
+  </div>
+</div>
 
-    <!-- Learn Section -->
-    <section id="learn" class="learn-section">
-        <h2><i class="fas fa-book-open"></i> GitHub Crash Course</h2>
-        <div class="lessons-container">
-            <!-- Lessons will be populated by JS -->
-        </div>
-        <button class="next-lesson-btn" id="nextBtn" onclick="nextLesson()">
-            Next Lesson <i class="fas fa-arrow-right"></i>
-        </button>
-    </section>
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="logo-icon">⬡</span>
+    <span class="logo-text">GitClub</span>
+  </div>
+  <div class="nav-links">
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#modules" class="nav-link">Modules</a>
+    <a href="#activities" class="nav-link">Activities</a>
+    <a href="#quizzes" class="nav-link">Quizzes</a>
+    <a href="#leaderboard" class="nav-link">Leaderboard</a>
+  </div>
+  <div class="nav-xp">
+    <span id="nav-xp-display">⚡ 0 XP</span>
+    <div id="nav-level">Lv.1</div>
+  </div>
+</nav>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <h2><i class="fas fa-project-diagram"></i> Cool Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card" data-modal="project1">
-                <i class="fas fa-gamepad"></i>
-                <h3>Game Repo</h3>
-                <p>Build your first game!</p>
-            </div>
-            <div class="project-card" data-modal="project2">
-                <i class="fas fa-robot"></i>
-                <h3>Chatbot</h3>
-                <p>Create a cool bot</p>
-            </div>
-            <div class="project-card" data-modal="project3">
-                <i class="fas fa-palette"></i>
-                <h3>Portfolio</h3>
-                <p>Showcase your skills</p>
-            </div>
-        </div>
-    </section>
+<!-- ══════════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════════ -->
+<section id="home" class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎓 Free for your GitClub</div>
+    <h1 class="hero-title">
+      Master <span class="highlight">GitHub</span><br/>
+      The Fun Way
+    </h1>
+    <p class="hero-subtitle">From zero to pull request hero — with quizzes, real projects, activities & your guide Gitto!</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="startJourney()">Start Learning ✦</button>
+      <button class="btn-secondary" onclick="scrollTo('#roadmap')">See Roadmap →</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" id="stat-modules">14</span><span class="stat-label">Modules</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Activities</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Quizzes</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">bash</span>
+      </div>
+      <div class="terminal-body" id="hero-terminal">
+        <span class="t-prompt">$</span> <span class="t-cmd typing-text"></span>
+        <div class="t-output" id="term-output"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Quiz Section -->
-    <section id="quiz" class="quiz-section">
-        <h2><i class="fas fa-brain"></i> Test Your Skills!</h2>
-        <div class="quiz-container" id="quizContainer">
-            <div class="question-card">
-                <div class="question">Ready to become a Git Master?</div>
-                <button class="quiz-start" onclick="startQuiz()">Start Quiz! 🚀</button>
-            </div>
-        </div>
-        <div class="quiz-score" id="quizScore" style="display: none;">
-            <h3>Your Score: <span id="score">0</span>/10</h3>
-            <button class="btn-primary" onclick="startQuiz()">Try Again!</button>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team-section">
-        <h2><i class="fas fa-users"></i> Our Awesome Team</h2>
-        <div class="team-grid">
-            <div class="team-member">
-                <img src="https://via.placeholder.com/100/4A90E2/FFFFFF?text=👨" alt="Team Member">
-                <h4>You!</h4>
-                <p>Future Git Master</p>
-            </div>
-            <!-- More team members added by JS -->
-        </div>
-    </section>
-
-    <!-- Modals -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="modalBody"></div>
-        </div>
+<!-- ══════════════════════════════════════════════
+     PROGRESS DASHBOARD
+══════════════════════════════════════════════ -->
+<section id="progress-dash" class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Your Progress <span class="title-accent">Dashboard</span></h2>
+    <div class="dashboard-grid">
+      <div class="dash-card xp-card">
+        <div class="dash-label">Total XP</div>
+        <div class="dash-value" id="dash-xp">0</div>
+        <div class="xp-bar-wrap"><div class="xp-bar" id="xp-bar" style="width:0%"></div></div>
+        <div class="dash-sub" id="xp-to-next">0 / 100 XP to next level</div>
+      </div>
+      <div class="dash-card streak-card">
+        <div class="dash-label">🔥 Streak</div>
+        <div class="dash-value" id="dash-streak">0 days</div>
+        <div class="dash-sub">Keep it up!</div>
+      </div>
+      <div class="dash-card level-card">
+        <div class="dash-label">🏆 Level</div>
+        <div class="dash-value" id="dash-level">Newbie</div>
+        <div class="dash-sub" id="dash-next-level">Next: Git Starter</div>
+      </div>
+      <div class="dash-card modules-card">
+        <div class="dash-label">📚 Modules Done</div>
+        <div class="dash-value"><span id="dash-done">0</span>/14</div>
+        <div class="module-dots" id="module-dots"></div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Git Club 🚀 Made with ❤️ by 13-year-old coding ninjas</p>
-    </footer>
+    <!-- Badges -->
+    <div class="badges-section">
+      <h3 class="badges-title">🎖️ Badges</h3>
+      <div class="badges-grid" id="badges-grid">
+        <div class="badge locked" data-badge="first-commit" title="Make your first commit">🐣 First Commit</div>
+        <div class="badge locked" data-badge="brancher" title="Create your first branch">🌿 Brancher</div>
+        <div class="badge locked" data-badge="merger" title="Do your first merge">🔀 Merger</div>
+        <div class="badge locked" data-badge="pr-hero" title="Open a pull request">🦸 PR Hero</div>
+        <div class="badge locked" data-badge="quiz-ace" title="Score 100% on a quiz">🎯 Quiz Ace</div>
+        <div class="badge locked" data-badge="streak-3" title="3 day streak">🔥 On Fire</div>
+        <div class="badge locked" data-badge="collaborator" title="Complete collaboration module">🤝 Collaborator</div>
+        <div class="badge locked" data-badge="open-source" title="Complete open source module">🌍 Open Sourcer</div>
+        <div class="badge locked" data-badge="actionist" title="Complete GitHub Actions module">⚙️ Actionist</div>
+        <div class="badge locked" data-badge="master" title="Complete all modules">👑 GitMaster</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- ══════════════════════════════════════════════
+     ROADMAP
+══════════════════════════════════════════════ -->
+<section id="roadmap" class="section dark-section">
+  <div class="section-inner">
+    <h2 class="section-title">Learning <span class="title-accent">Roadmap</span></h2>
+    <p class="section-sub">Follow the path from total beginner to GitHub pro!</p>
+    <div class="roadmap-path">
+      <div class="road-node done" data-module="0">
+        <div class="road-num">1</div>
+        <div class="road-label">What is Git & GitHub?</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="1">
+        <div class="road-num">2</div>
+        <div class="road-label">Setup & Installation</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="2">
+        <div class="road-num">3</div>
+        <div class="road-label">Repositories</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="3">
+        <div class="road-num">4</div>
+        <div class="road-label">Commits & Snapshots</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="4">
+        <div class="road-num">5</div>
+        <div class="road-label">Branches</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="5">
+        <div class="road-num">6</div>
+        <div class="road-label">Merging & Conflicts</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="6">
+        <div class="road-num">7</div>
+        <div class="road-label">Remote & Push/Pull</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="7">
+        <div class="road-num">8</div>
+        <div class="road-label">Pull Requests</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="8">
+        <div class="road-num">9</div>
+        <div class="road-label">Fork & Clone</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="9">
+        <div class="road-num">10</div>
+        <div class="road-label">Issues & Projects</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="10">
+        <div class="road-num">11</div>
+        <div class="road-label">GitHub Actions</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="11">
+        <div class="road-num">12</div>
+        <div class="road-label">GitHub Pages</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="12">
+        <div class="road-num">13</div>
+        <div class="road-label">Open Source</div>
+      </div>
+      <div class="road-connector"></div>
+      <div class="road-node" data-module="13">
+        <div class="road-num">14</div>
+        <div class="road-label">Pro Tips & Best Practices</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     MODULES
+══════════════════════════════════════════════ -->
+<section id="modules" class="section">
+  <div class="section-inner">
+    <h2 class="section-title">All <span class="title-accent">Modules</span></h2>
+    <div class="module-cards-grid" id="module-cards-grid">
+
+      <!-- MODULE 0 -->
+      <div class="module-card" data-module="0">
+        <div class="mc-header">
+          <span class="mc-icon">🌍</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 1</span>
+            <span class="mc-xp">+50 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">What is Git & GitHub?</h3>
+        <p class="mc-desc">Understand the difference between Git and GitHub. Learn why version control exists and how it changed software development forever.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">Version Control</span>
+          <span class="topic-tag">Git vs GitHub</span>
+          <span class="topic-tag">History</span>
+          <span class="topic-tag">Real-world use</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 15 min</span>
+          <button class="mc-btn" onclick="openModule(0)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 1 -->
+      <div class="module-card" data-module="1">
+        <div class="mc-header">
+          <span class="mc-icon">⚙️</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 2</span>
+            <span class="mc-xp">+50 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Setup & Installation</h3>
+        <p class="mc-desc">Install Git on Windows, Mac & Linux. Configure your name and email. Connect to GitHub with SSH keys.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git install</span>
+          <span class="topic-tag">git config</span>
+          <span class="topic-tag">SSH Keys</span>
+          <span class="topic-tag">GitHub account</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 20 min</span>
+          <button class="mc-btn" onclick="openModule(1)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 2 -->
+      <div class="module-card" data-module="2">
+        <div class="mc-header">
+          <span class="mc-icon">📁</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 3</span>
+            <span class="mc-xp">+60 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Repositories</h3>
+        <p class="mc-desc">Create your first repo! Understand local vs remote repos, README files, .gitignore, and licenses.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git init</span>
+          <span class="topic-tag">README.md</span>
+          <span class="topic-tag">.gitignore</span>
+          <span class="topic-tag">Licenses</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 20 min</span>
+          <button class="mc-btn" onclick="openModule(2)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 3 -->
+      <div class="module-card" data-module="3">
+        <div class="mc-header">
+          <span class="mc-icon">📸</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 4</span>
+            <span class="mc-xp">+60 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Commits & Snapshots</h3>
+        <p class="mc-desc">Stage files, write great commit messages, view history, and time-travel to any past version.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git add</span>
+          <span class="topic-tag">git commit</span>
+          <span class="topic-tag">git log</span>
+          <span class="topic-tag">git diff</span>
+          <span class="topic-tag">git status</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 25 min</span>
+          <button class="mc-btn" onclick="openModule(3)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 4 -->
+      <div class="module-card" data-module="4">
+        <div class="mc-header">
+          <span class="mc-icon">🌿</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 5</span>
+            <span class="mc-xp">+70 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Branches</h3>
+        <p class="mc-desc">Work on features safely without breaking the main code. Master branching strategy and naming conventions.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git branch</span>
+          <span class="topic-tag">git checkout</span>
+          <span class="topic-tag">git switch</span>
+          <span class="topic-tag">Branch strategy</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 25 min</span>
+          <button class="mc-btn" onclick="openModule(4)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 5 -->
+      <div class="module-card" data-module="5">
+        <div class="mc-header">
+          <span class="mc-icon">🔀</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 6</span>
+            <span class="mc-xp">+80 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Merging & Conflicts</h3>
+        <p class="mc-desc">Combine branches, handle merge conflicts like a pro. Understand rebase vs merge.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git merge</span>
+          <span class="topic-tag">git rebase</span>
+          <span class="topic-tag">Conflicts</span>
+          <span class="topic-tag">Fast-forward</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 30 min</span>
+          <button class="mc-btn" onclick="openModule(5)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 6 -->
+      <div class="module-card" data-module="6">
+        <div class="mc-header">
+          <span class="mc-icon">☁️</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 7</span>
+            <span class="mc-xp">+70 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Remote & Push/Pull</h3>
+        <p class="mc-desc">Connect local to GitHub, push your code to the cloud, pull teammate changes, understand origin and upstream.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git push</span>
+          <span class="topic-tag">git pull</span>
+          <span class="topic-tag">git fetch</span>
+          <span class="topic-tag">git remote</span>
+          <span class="topic-tag">origin</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 25 min</span>
+          <button class="mc-btn" onclick="openModule(6)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 7 -->
+      <div class="module-card" data-module="7">
+        <div class="mc-header">
+          <span class="mc-icon">🔁</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 8</span>
+            <span class="mc-xp">+80 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Pull Requests</h3>
+        <p class="mc-desc">The heart of collaboration. Create PRs, review code, leave comments, request changes, and merge with confidence.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">Open PR</span>
+          <span class="topic-tag">Code Review</span>
+          <span class="topic-tag">Merge PR</span>
+          <span class="topic-tag">Draft PR</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 30 min</span>
+          <button class="mc-btn" onclick="openModule(7)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 8 -->
+      <div class="module-card" data-module="8">
+        <div class="mc-header">
+          <span class="mc-icon">🍴</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 9</span>
+            <span class="mc-xp">+60 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Fork & Clone</h3>
+        <p class="mc-desc">Contribute to others' projects! Fork a repo, clone it, make changes, and send a PR to the original author.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git clone</span>
+          <span class="topic-tag">Fork</span>
+          <span class="topic-tag">Upstream</span>
+          <span class="topic-tag">Contribute</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 25 min</span>
+          <button class="mc-btn" onclick="openModule(8)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 9 -->
+      <div class="module-card" data-module="9">
+        <div class="mc-header">
+          <span class="mc-icon">📋</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 10</span>
+            <span class="mc-xp">+60 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Issues & Projects</h3>
+        <p class="mc-desc">Track bugs, features, and tasks. Use GitHub Projects like a Kanban board. Labels, milestones, and assignees.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">Issues</span>
+          <span class="topic-tag">Labels</span>
+          <span class="topic-tag">Milestones</span>
+          <span class="topic-tag">Projects board</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 25 min</span>
+          <button class="mc-btn" onclick="openModule(9)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 10 -->
+      <div class="module-card" data-module="10">
+        <div class="mc-header">
+          <span class="mc-icon">⚡</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 11</span>
+            <span class="mc-xp">+100 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">GitHub Actions</h3>
+        <p class="mc-desc">Automate everything! Auto-test your code, deploy websites, send notifications. YAML workflows explained simply.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">Workflows</span>
+          <span class="topic-tag">YAML</span>
+          <span class="topic-tag">CI/CD</span>
+          <span class="topic-tag">Triggers</span>
+          <span class="topic-tag">Jobs</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 40 min</span>
+          <button class="mc-btn" onclick="openModule(10)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 11 -->
+      <div class="module-card" data-module="11">
+        <div class="mc-header">
+          <span class="mc-icon">🌐</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 12</span>
+            <span class="mc-xp">+70 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">GitHub Pages</h3>
+        <p class="mc-desc">Host your website for FREE using GitHub Pages. Deploy from main branch or /docs folder. Custom domains too!</p>
+        <div class="mc-topics">
+          <span class="topic-tag">Deploy website</span>
+          <span class="topic-tag">gh-pages branch</span>
+          <span class="topic-tag">Custom domain</span>
+          <span class="topic-tag">Jekyll</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 25 min</span>
+          <button class="mc-btn" onclick="openModule(11)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 12 -->
+      <div class="module-card" data-module="12">
+        <div class="mc-header">
+          <span class="mc-icon">🌍</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 13</span>
+            <span class="mc-xp">+80 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Open Source</h3>
+        <p class="mc-desc">What is open source? How to find projects to contribute to. Hacktoberfest. Writing good issues and PRs.</p>
+        <div class="mc-topics">
+          <span class="topic-tag">Open Source</span>
+          <span class="topic-tag">Hacktoberfest</span>
+          <span class="topic-tag">good first issue</span>
+          <span class="topic-tag">CONTRIBUTING.md</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 30 min</span>
+          <button class="mc-btn" onclick="openModule(12)">Start →</button>
+        </div>
+      </div>
+
+      <!-- MODULE 13 -->
+      <div class="module-card" data-module="13">
+        <div class="mc-header">
+          <span class="mc-icon">👑</span>
+          <div class="mc-meta">
+            <span class="mc-num">Module 14</span>
+            <span class="mc-xp">+100 XP</span>
+          </div>
+        </div>
+        <h3 class="mc-title">Pro Tips & Best Practices</h3>
+        <p class="mc-desc">Git stash, cherry-pick, bisect, tags, releases, semantic versioning, commit message conventions & more!</p>
+        <div class="mc-topics">
+          <span class="topic-tag">git stash</span>
+          <span class="topic-tag">git tag</span>
+          <span class="topic-tag">Releases</span>
+          <span class="topic-tag">Semantic versioning</span>
+          <span class="topic-tag">cherry-pick</span>
+        </div>
+        <div class="mc-footer">
+          <span class="mc-time">⏱ 40 min</span>
+          <button class="mc-btn" onclick="openModule(13)">Start →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     ACTIVITIES SECTION
+══════════════════════════════════════════════ -->
+<section id="activities" class="section dark-section">
+  <div class="section-inner">
+    <h2 class="section-title">Fun <span class="title-accent">Activities</span></h2>
+    <p class="section-sub">Hands-on exercises to cement your learning!</p>
+    <div class="activities-grid">
+
+      <div class="activity-card" onclick="openActivity('cmd-match')">
+        <div class="act-icon">🎮</div>
+        <h3>Command Match</h3>
+        <p>Drag-and-drop Git commands to their meanings. Earn XP for each correct match!</p>
+        <div class="act-meta"><span class="act-xp">+30 XP</span><span class="act-type">Game</span></div>
+      </div>
+
+      <div class="activity-card" onclick="openActivity('commit-story')">
+        <div class="act-icon">📖</div>
+        <h3>Commit Story</h3>
+        <p>Look at a project's commit history and figure out what the developer was building!</p>
+        <div class="act-meta"><span class="act-xp">+40 XP</span><span class="act-type">Detective</span></div>
+      </div>
+
+      <div class="activity-card" onclick="openActivity('branch-draw')">
+        <div class="act-icon">🌿</div>
+        <h3>Branch Sketch</h3>
+        <p>Draw the branch tree from a set of git commands. Then see if it matches!</p>
+        <div class="act-meta"><span class="act-xp">+50 XP</span><span class="act-type">Visual</span></div>
+      </div>
+
+      <div class="activity-card" onclick="openActivity('pr-review')">
+        <div class="act-icon">🔍</div>
+        <h3>Code Review Sim</h3>
+        <p>Review a fake pull request. Find the bugs, leave comments, approve or reject!</p>
+        <div class="act-meta"><span class="act-xp">+60 XP</span><span class="act-type">Simulation</span></div>
+      </div>
+
+      <div class="activity-card" onclick="openActivity('terminal-sim')">
+        <div class="act-icon">💻</div>
+        <h3>Terminal Simulator</h3>
+        <p>Practice real git commands in a safe sandbox terminal. No fear of breaking anything!</p>
+        <div class="act-meta"><span class="act-xp">+80 XP</span><span class="act-type">Hands-on</span></div>
+      </div>
+
+      <div class="activity-card" onclick="openActivity('conflict-resolve')">
+        <div class="act-icon">⚔️</div>
+        <h3>Conflict Resolver</h3>
+        <p>Two developers changed the same file. Can you resolve the merge conflict correctly?</p>
+        <div class="act-meta"><span class="act-xp">+70 XP</span><span class="act-type">Challenge</span></div>
+      </div>
+
+      <div class="activity-card" onclick="openActivity('gitignore-builder')">
+        <div class="act-icon">🙈</div>
+        <h3>.gitignore Builder</h3>
+        <p>Given a project type, build the correct .gitignore file by selecting what to ignore!</p>
+        <div class="act-meta"><span class="act-xp">+30 XP</span><span class="act-type">Builder</span></div>
+      </div>
+
+      <div class="activity-card" onclick="openActivity('readme-write')">
+        <div class="act-icon">📝</div>
+        <h3>README Writer</h3>
+        <p>Write a proper README.md for a project using Markdown. Preview it live!</p>
+        <div class="act-meta"><span class="act-xp">+50 XP</span><span class="act-type">Creative</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CHEAT SHEET
+══════════════════════════════════════════════ -->
+<section id="cheatsheet" class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Git <span class="title-accent">Cheat Sheet</span></h2>
+    <p class="section-sub">Every command you'll ever need, organized by category</p>
+    <div class="cheat-grid">
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">🆕 Setup</div>
+        <div class="cheat-item"><code>git config --global user.name "Name"</code><span>Set your name</span></div>
+        <div class="cheat-item"><code>git config --global user.email "email"</code><span>Set your email</span></div>
+        <div class="cheat-item"><code>git init</code><span>Start a new repo</span></div>
+        <div class="cheat-item"><code>git clone &lt;url&gt;</code><span>Copy a repo</span></div>
+      </div>
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">📸 Snapshot</div>
+        <div class="cheat-item"><code>git status</code><span>Check what changed</span></div>
+        <div class="cheat-item"><code>git add .</code><span>Stage all changes</span></div>
+        <div class="cheat-item"><code>git add &lt;file&gt;</code><span>Stage a file</span></div>
+        <div class="cheat-item"><code>git commit -m "msg"</code><span>Save a snapshot</span></div>
+        <div class="cheat-item"><code>git diff</code><span>See what changed</span></div>
+      </div>
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">🌿 Branching</div>
+        <div class="cheat-item"><code>git branch</code><span>List branches</span></div>
+        <div class="cheat-item"><code>git branch &lt;name&gt;</code><span>Create branch</span></div>
+        <div class="cheat-item"><code>git switch &lt;name&gt;</code><span>Go to branch</span></div>
+        <div class="cheat-item"><code>git switch -c &lt;name&gt;</code><span>Create & switch</span></div>
+        <div class="cheat-item"><code>git branch -d &lt;name&gt;</code><span>Delete branch</span></div>
+      </div>
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">🔀 Merging</div>
+        <div class="cheat-item"><code>git merge &lt;branch&gt;</code><span>Merge a branch</span></div>
+        <div class="cheat-item"><code>git rebase &lt;branch&gt;</code><span>Rebase onto branch</span></div>
+        <div class="cheat-item"><code>git cherry-pick &lt;hash&gt;</code><span>Pick one commit</span></div>
+        <div class="cheat-item"><code>git merge --abort</code><span>Cancel a merge</span></div>
+      </div>
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">☁️ Remote</div>
+        <div class="cheat-item"><code>git remote -v</code><span>Show remotes</span></div>
+        <div class="cheat-item"><code>git push origin main</code><span>Upload to GitHub</span></div>
+        <div class="cheat-item"><code>git pull</code><span>Download + merge</span></div>
+        <div class="cheat-item"><code>git fetch</code><span>Download only</span></div>
+      </div>
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">⏪ Undo</div>
+        <div class="cheat-item"><code>git restore &lt;file&gt;</code><span>Undo file change</span></div>
+        <div class="cheat-item"><code>git reset HEAD~1</code><span>Undo last commit</span></div>
+        <div class="cheat-item"><code>git revert &lt;hash&gt;</code><span>Safe undo commit</span></div>
+        <div class="cheat-item"><code>git stash</code><span>Save work for later</span></div>
+        <div class="cheat-item"><code>git stash pop</code><span>Restore stashed work</span></div>
+      </div>
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">🔍 Inspect</div>
+        <div class="cheat-item"><code>git log</code><span>See commit history</span></div>
+        <div class="cheat-item"><code>git log --oneline</code><span>Short history</span></div>
+        <div class="cheat-item"><code>git show &lt;hash&gt;</code><span>See a commit</span></div>
+        <div class="cheat-item"><code>git blame &lt;file&gt;</code><span>Who wrote each line</span></div>
+      </div>
+      <div class="cheat-cat">
+        <div class="cheat-cat-title">🏷️ Tags & Releases</div>
+        <div class="cheat-item"><code>git tag v1.0</code><span>Create a tag</span></div>
+        <div class="cheat-item"><code>git tag</code><span>List all tags</span></div>
+        <div class="cheat-item"><code>git push --tags</code><span>Push tags to GitHub</span></div>
+        <div class="cheat-item"><code>git tag -d v1.0</code><span>Delete a tag</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZZES SECTION
+══════════════════════════════════════════════ -->
+<section id="quizzes" class="section dark-section">
+  <div class="section-inner">
+    <h2 class="section-title">Test Your <span class="title-accent">Knowledge</span></h2>
+    <p class="section-sub">Challenge yourself and earn XP points!</p>
+    <div class="quiz-list">
+      <div class="quiz-item" onclick="startQuiz(0)">
+        <div class="quiz-icon">🌱</div>
+        <div class="quiz-info">
+          <h3>Beginner Quiz</h3>
+          <p>Git basics, repos, commits — 10 questions</p>
+        </div>
+        <div class="quiz-meta">
+          <span class="quiz-xp">+100 XP</span>
+          <span class="quiz-status" id="quiz-status-0">Not started</span>
+        </div>
+      </div>
+      <div class="quiz-item" onclick="startQuiz(1)">
+        <div class="quiz-icon">🌿</div>
+        <div class="quiz-info">
+          <h3>Branching & Merging</h3>
+          <p>Branches, merges, conflicts — 10 questions</p>
+        </div>
+        <div class="quiz-meta">
+          <span class="quiz-xp">+120 XP</span>
+          <span class="quiz-status" id="quiz-status-1">Not started</span>
+        </div>
+      </div>
+      <div class="quiz-item" onclick="startQuiz(2)">
+        <div class="quiz-icon">🌳</div>
+        <div class="quiz-info">
+          <h3>Collaboration Quiz</h3>
+          <p>PRs, forks, issues, teams — 10 questions</p>
+        </div>
+        <div class="quiz-meta">
+          <span class="quiz-xp">+150 XP</span>
+          <span class="quiz-status" id="quiz-status-2">Not started</span>
+        </div>
+      </div>
+      <div class="quiz-item" onclick="startQuiz(3)">
+        <div class="quiz-icon">🎯</div>
+        <div class="quiz-info">
+          <h3>Commands Speed Round</h3>
+          <p>30-second timed — pick the right command!</p>
+        </div>
+        <div class="quiz-meta">
+          <span class="quiz-xp">+200 XP</span>
+          <span class="quiz-status" id="quiz-status-3">Not started</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     REAL WORLD EXAMPLES
+══════════════════════════════════════════════ -->
+<section id="examples" class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Real World <span class="title-accent">Examples</span></h2>
+    <p class="section-sub">GitHub concepts explained with everyday analogies!</p>
+    <div class="examples-grid">
+      <div class="example-card">
+        <div class="ex-emoji">📚</div>
+        <h3>Repository = School Bag</h3>
+        <p>A repo is like your school bag — it holds all the books (files) for one subject (project). Your bag has a history of everything you ever put in it!</p>
+      </div>
+      <div class="example-card">
+        <div class="ex-emoji">📸</div>
+        <h3>Commit = Photo Album</h3>
+        <p>Every commit is like taking a photo of your room. If it ever gets messy, you can look at old photos and go back to when it was clean!</p>
+      </div>
+      <div class="example-card">
+        <div class="ex-emoji">🛣️</div>
+        <h3>Branch = Parallel Story</h3>
+        <p>Imagine writing a story. A branch lets you write an alternate ending — if it's good, you add it to the main story. If not, you throw it away!</p>
+      </div>
+      <div class="example-card">
+        <div class="ex-emoji">🍕</div>
+        <h3>Fork = Copy a Recipe</h3>
+        <p>Forking is like copying your friend's pizza recipe into your own notebook, so you can change the toppings without changing theirs!</p>
+      </div>
+      <div class="example-card">
+        <div class="ex-emoji">✉️</div>
+        <h3>Pull Request = Suggestion Letter</h3>
+        <p>A PR is like writing a letter to your teacher saying "I improved the homework! Please check and add it to the class notes!"</p>
+      </div>
+      <div class="example-card">
+        <div class="ex-emoji">⚔️</div>
+        <h3>Merge Conflict = Two Cooks</h3>
+        <p>Two people changed the same line — like two cooks adding different amounts of salt. You have to decide which amount (or combination) to keep!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     LEADERBOARD
+══════════════════════════════════════════════ -->
+<section id="leaderboard" class="section dark-section">
+  <div class="section-inner">
+    <h2 class="section-title">GitClub <span class="title-accent">Leaderboard</span></h2>
+    <p class="section-sub">Compete with your friends in the club!</p>
+    <div class="leaderboard-add">
+      <input type="text" id="lb-name-input" placeholder="Enter your name to join..." class="lb-input" />
+      <button class="btn-primary small" onclick="addToLeaderboard()">Join Board →</button>
+    </div>
+    <div class="lb-table" id="leaderboard-table">
+      <div class="lb-header">
+        <span>Rank</span><span>Name</span><span>XP</span><span>Level</span><span>Modules</span>
+      </div>
+      <div id="lb-rows"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     MODULE MODAL
+══════════════════════════════════════════════ -->
+<div id="module-modal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('module-modal')"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('module-modal')">✕</button>
+    <div id="module-modal-content"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ MODAL
+══════════════════════════════════════════════ -->
+<div id="quiz-modal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('quiz-modal')"></div>
+  <div class="modal-box quiz-modal-box">
+    <button class="modal-close" onclick="closeModal('quiz-modal')">✕</button>
+    <div id="quiz-modal-content"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ACTIVITY MODAL
+══════════════════════════════════════════════ -->
+<div id="activity-modal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('activity-modal')"></div>
+  <div class="modal-box activity-modal-box">
+    <button class="modal-close" onclick="closeModal('activity-modal')">✕</button>
+    <div id="activity-modal-content"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TOAST NOTIFICATION
+══════════════════════════════════════════════ -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">⬡ GitClub</div>
+    <p class="footer-text">Built with 💛 for curious minds who want to master GitHub</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#modules">Modules</a>
+      <a href="#activities">Activities</a>
+      <a href="#quizzes">Quizzes</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
