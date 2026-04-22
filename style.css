@@ -115,7 +115,7 @@ body {
   z-index: 9998;
   transition: transform 0.15s ease, opacity 0.3s ease;
 }
-
+transform: translate(-50%, -50%);
 /* ── RESET ─────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
