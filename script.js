@@ -20,6 +20,18 @@ let state = loadState() || {
   currentUser: null
 };
 
+function showPage(pageId) {
+  // Hide all pages
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  // Show selected page
+  document.getElementById(pageId).classList.add("active");
+}
+
+// Default page
+showPage("home");
   window.onscroll = function () {
     let scrollTop = document.documentElement.scrollTop;
     let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
