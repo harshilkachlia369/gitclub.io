@@ -114,8 +114,11 @@ body {
   pointer-events: none;
   z-index: 9998;
   transition: transform 0.15s ease, opacity 0.3s ease;
+   .cursor-ring {
+  transition: transform 0.2s ease-out;
 }
-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+
 /* ── RESET ─────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
